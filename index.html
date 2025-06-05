@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inscription Concert Renoi</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+      position: relative; /* important pour positionner le pseudo-élément */
+      background: url('background.jpg') no-repeat center center fixed;
+      background-size: cover;
+      overflow: hidden; /* optionnel */
+    }
+    
+    body::before {
+      content: "";
+      position: fixed; /* ou absolute selon besoin */
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 0;
+    }
+    
+    body > * {
+      position: relative;
+      z-index: 1;
+    }
+    
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    p {
+      text-align: center;
+      font-size: 1.1em;
+      max-width: 500px;
+      margin-bottom: 40px;
+    }
+
+    .form-container {
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 20px;
+      border-radius: 15px;
+      max-width: 300px;
+      width: 100%;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    input {
+      margin-top: 5px;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1em;
+    }
+
+    button {
+      margin-top: 43px;
+      padding: 12px;
+      background-color: #ff6b00;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-size: 1.1em;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #e65c00;
+    }
+
+    @media (max-width: 500px) {
+      h1 {
+        font-size: 2em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Renoi release party</h1>
+<p>
+    21 juin - <strong>Centre Eya</strong> - 17h <br>
+  <strong>Dresscode :</strong> All black</p>
+
+  <div class="form-container">
+    <form id="inscription-form" action="https://script.google.com/macros/s/https://script.google.com/macros/s/AKfycbx-YK_5iuoDesNBT-3qNRq837dA1QDHlN5TBFiIggr7nvkMWLQ-TbkDL7IuAvFmqo_8BQ/exec" method="POST">
+  <label for="prenom">Prénom</label>
+  <input type="text" id="prenom" name="prenom" required />
+
+  <label for="nom">Nom</label>
+  <input type="text" id="nom" name="nom" required />
+
+  <label for="email">Email</label>
+  <input type="email" id="email" name="email" required />
+
+  <button type="submit">Je m’inscris</button>
+</form>
+
+    <div style="margin-top: 40px; text-align: center;">
+      <img src="Oculus.png" alt="Logo Oculus" style="width: 100px; max-width: 100%; height: auto; border-radius: 12px;" />
+    </div>
+  </div>
+	<script>
+  const form = document.getElementById("inscription-form");
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    fetch(form.action, {
+      method: "POST",
+      body: new FormData(form),
+    })
+    .then(() => {
+      window.location.href = "merci.html"; // redirection après succès
+    })
+    .catch((error) => {
+      alert("Erreur lors de l'envoi du formulaire. Réessaie.");
+      console.error(error);
+    });
+  });
+</script>
+
+</body>
+</html>
+
