@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inscription Concert Renoi</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+      position: relative; /* important pour positionner le pseudo-élément */
+      background: url('background.jpg') no-repeat center center fixed;
+      background-size: cover;
+      overflow: hidden; /* optionnel */
+    }
+    
+    body::before {
+      content: "";
+      position: fixed; /* ou absolute selon besoin */
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 0;
+    }
+    
+    body > * {
+      position: relative;
+      z-index: 1;
+    }
+    
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    p {
+      text-align: center;
+      font-size: 1.1em;
+      max-width: 900px;
+      margin-bottom: 40px;
+    }
+
+    .form-container {
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 20px;
+      border-radius: 15px;
+      max-width: 300px;
+      width: 100%;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    input {
+      margin-top: 5px;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1em;
+    }
+
+    button {
+      margin-top: 43px;
+      padding: 12px;
+      background-color: #ff6b00;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-size: 1.1em;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #e65c00;
+    }
+
+    @media (max-width: 500px) {
+      h1 {
+        font-size: 2em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Renoi release party</h1>
+<p>
+    21 juin au <strong>Centre Eya</strong> !<br>
+    à 17h <br>
+  <strong>Dresscode :</strong> All black</p>
+
+  <div class="form-container">
+    <form action="https://formsubmit.co/contact@oculusdigitals.com" method="POST">
+      <label for="prenom">Prénom</label>
+      <input type="text" id="prenom" name="prenom" required />
+
+      <label for="nom">Nom</label>
+      <input type="text" id="nom" name="nom" required />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required />
+      
+      <input type="text" name="_gotcha" style="display:none" />
+      
+      <input type="hidden" name="_redirect" value="merci.html" />
+      
+      <button type="submit">Je m’inscris</button>
+    </form>
+    <div style="margin-top: 40px; text-align: center;">
+      <img src="Oculus.png" alt="Logo oculus" style="max-width: 30%; height: auto; border-radius: 12px;" />
+    </div>
+  </div>
+
+</body>
+</html>
+
