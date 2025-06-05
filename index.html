@@ -107,21 +107,43 @@
   <strong>Dresscode :</strong> Full black</p>
 
   <div class="form-container">
-    <form action="https://formsubmit.co/contact@oculusdigitals.com" method="POST">
-      <label for="prenom">Prénom</label>
-      <input type="text" id="prenom" name="prenom" required />
+    <form id="inscription-form">
+  <label for="prenom">Prénom</label>
+  <input type="text" id="prenom" name="prenom" required />
 
-      <label for="nom">Nom</label>
-      <input type="text" id="nom" name="nom" required />
+  <label for="nom">Nom</label>
+  <input type="text" id="nom" name="nom" required />
 
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" required />
-      <input type="text" name="_gotcha" style="display:none" />
-      <input type="hidden" name="_redirect" value="https://oculus6.github.io/Merci/" />
-      <button type="submit">Je m’inscris</button>
-    </form>
-    <div style="margin-top: 40px; text-align: center;">
-      <img src="Oculus.png" alt="Logo oculus" style="max-width: 30%; height: auto; border-radius: 12px;" />
+  <label for="email">Email</label>
+  <input type="email" id="email" name="email" required />
+
+  <button type="submit">Je m’inscris</button>
+</form>
+
+<script>
+  const form = document.getElementById("inscription-form");
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    fetch("https://script.google.com/macros/s/AKfycbwwEOVyN5Tcbipd-eiO0gPFAQ68c0QpQkjzoc7-I_bJhKoIQ5Q8sqyRfvFnhYwnVuxf/exec", {
+      method: "POST",
+      body: JSON.stringify({
+        prenom: form.prenom.value,
+        nom: form.nom.value,
+        email: form.email.value
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then(() => {
+        window.location.href = "https://oculus6.github.io/Merci/";
+      })
+      .catch((err) => alert("Erreur lors de l'envoi"));
+  });
+</script>
+
     </div>
   </div>
 
